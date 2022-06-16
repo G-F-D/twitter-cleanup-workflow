@@ -33,12 +33,12 @@ def try_deleting_tweet(id_str):
 			for message in e.api_messages:
 				print('    More details: ' + message)
 			return CODE_SKIP
-		except  tweepy.BadRequest:
+		except tweepy.BadRequest:
 			print('ERROR: Bad request (400).')
 			for message in e.api_messages:
 				print('    More details: ' + message)
 			return CODE_FATALERROR
-		except  tweepy.Unauthorized:
+		except tweepy.Unauthorized:
 			print('ERROR: Unauthorized (403).')
 			for message in e.api_messages:
 				print('    More details: ' + message)
