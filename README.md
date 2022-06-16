@@ -129,6 +129,6 @@ When you’re totally all done using the API, go back to the [Twitter developer 
 # Support
 If you’re having difficulties, you can try contacting me on [Twitter](https://twitter.com/Gee_Eff_Dee) or [Mastodon](https://mastodon.social/@GFD), but I do not guarantee support and may be unable or unwilling to assist with individual cases.
 
-If your issues is at all related to Twitter denying you access to API keys or otherwise taking action against your account, I cannot help you with that. I assume no legal liability for any outcomes of following any parts of this guide, and any advice comes with no warranty.
+If your issues are at all related to Twitter denying you access to API keys or otherwise taking action against your account, I cannot help you with that. I assume no legal liability for any outcomes of following any parts of this guide, and any advice comes with no warranty.
 
 Issues/PRs on this repository should only be used for things that you can confirm need fixing, like broken script behaviour or outdated instructions (e.g. due to changes on Twitter’s end, or UI changes in LibreOffice Calc). Additional features and enhancements are not being considered. If you’re just going to be annoying and make a pull to replace all the tabbed indentation with spaces then you should know that you’re wrong and PEP8 is wrong.
