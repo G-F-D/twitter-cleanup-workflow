@@ -14,6 +14,13 @@ It was relatively low‐effort for me to put this workflow together, but this di
 ## Does this also handle retweets?
 Yes, there is no special handling for them necessary. Every retweet is actually just a regular tweet in a fancy disguise, so you can also delete them directly just like any other tweet, rather than having to “unretweet” the source tweet or something.
 
+## How does this handle edits?
+**It doesn’t**; this feature didn’t exist when I created this workflow. Depending on how these are stored in the archive (I have no sample data I can check), I assume this will produce one of these outcomes in this workflow:
+* The tweet will appear once with its original text;
+* The tweet will appear once with its most recent text;
+* Each edit will appear as its own tweet.
+I also do not know how this will impact the automated deletion process, particularly in the lattermost case.
+
 ## How long will this take?
 Potentially a very long time, especially if you have 5 figures of tweets or more. There’s both waiting and labour:
 * Requesting an account archive often takes many days for Twitter to fulfill.
@@ -126,7 +133,7 @@ In your file explorer, open the data folder, hold shift and right‐click on som
 
 When you’re totally all done using the API, go back to the [Twitter developer portal dashboard](https://developer.twitter.com/en/portal/dashboard), click the blue key to the right of your app’s name, click “Regenerate” next to “API Key and Secret” and don’t save them anywhere, then click “Revoke” next to “Access Token and Secret”. This is for security purposes — now you cannot control your account with the API anymore until you generate new keys, but neither can anyone else.
 
-# Support
+# Support / legal
 If you’re having difficulties, you can try contacting me on [Twitter](https://twitter.com/Gee_Eff_Dee) or [Mastodon](https://mastodon.social/@GFD), but I do not guarantee support and may be unable or unwilling to assist with individual cases.
 
 If your issues are at all related to Twitter denying you access to API keys or otherwise taking action against your account, I cannot help you with that. I assume no legal liability for any outcomes of following any parts of this guide, and any advice comes with no warranty.

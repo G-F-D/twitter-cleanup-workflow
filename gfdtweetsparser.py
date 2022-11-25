@@ -1,10 +1,23 @@
 import json, datetime, re, html
-with open('./tweet.js', 'r', encoding='utf-8') as src_file:
-	# skip variable assignment text “window.YTD.tweet.part0 = ” since it’s not json
-	# ASSUMPTION: file starts with exactly the aforementioned string (it has for many years now)
-	src_file.seek(25)
-	json_data = json.loads(src_file.read())
-with open('./tweet.csv', 'w', encoding='utf-8') as csv_file:
+try:
+	with open('./tweets.js', 'r', encoding='utf-8') as src_file:
+		print('found tweets.js file, working...')
+		# skip variable assignment text “window.YTD.tweets.part0 = ” since it’s not json
+		# ASSUMPTION: file starts with exactly the aforementioned string
+		src_file.seek(26)
+		json_data = json.loads(src_file.read())
+except:
+	try:
+		with open('./tweet.js', 'r', encoding='utf-8') as src_file:
+			print('found tweet.js file, working...')
+			# skip variable assignment text “window.YTD.tweet.part0 = ” since it’s not json
+			# ASSUMPTION: file starts with exactly the aforementioned string
+			src_file.seek(25)
+			json_data = json.loads(src_file.read())
+	except:
+		print('cannot find/open tweets.js or tweet.js file in this directory! are you working in the archive\'s "data" folder?')
+		exit()
+with open('./tweets.csv', 'w', encoding='utf-8') as csv_file:
 	csv_record = (
 		"ID;"
 		"Date;"
@@ -64,7 +77,7 @@ with open('./tweet.csv', 'w', encoding='utf-8') as csv_file:
 		for url in tweet['entities']['urls']:
 			edit = tweet['full_text'].replace(url['url'], url['expanded_url'])
 			if edit == tweet['full_text']:
-				print(f"Shortened URL substitution failed on tweet ID {tweet['id']} (duplicate URL?).")
+				print(f"URL edit failed on {tweet['id']} (duplicate url?)")
 			else:
 				tweet['full_text'] = edit
 		tweet['full_text'] = html.unescape(tweet['full_text'])
@@ -92,7 +105,7 @@ with open('./tweet.csv', 'w', encoding='utf-8') as csv_file:
 		for url, new_urls in edit_urls.items():
 			edit = tweet['full_text'].replace(url, ' '.join(map(str, new_urls)))
 			if edit == tweet['full_text']:
-				print(f"Media URL substitution failed on tweet ID {tweet['id']}.")
+				print(f"media edit failed on {tweet['id']}")
 			else:
 				tweet['full_text'] = edit
 		tweet['full_text'] = tweet['full_text'].replace('"', '""') # escape tweet text
@@ -111,4 +124,4 @@ with open('./tweet.csv', 'w', encoding='utf-8') as csv_file:
 		for media in tweet['media_files']:
 			csv_record += f'"{media}";'
 		csv_file.write(csv_record + '\n')
-print(f'tweet.csv produced from {len(json_data)} tweets.')
+print(f'tweets.csv produced from {len(json_data)} tweets.')
