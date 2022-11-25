@@ -77,7 +77,7 @@ with open('./tweets.csv', 'w', encoding='utf-8') as csv_file:
 		for url in tweet['entities']['urls']:
 			edit = tweet['full_text'].replace(url['url'], url['expanded_url'])
 			if edit == tweet['full_text']:
-				print(f"URL edit failed on {tweet['id']} (duplicate url?)")
+				print(f"Shortened URL substitution failed on tweet ID {tweet['id']} (duplicate URL?).")
 			else:
 				tweet['full_text'] = edit
 		tweet['full_text'] = html.unescape(tweet['full_text'])
@@ -105,7 +105,7 @@ with open('./tweets.csv', 'w', encoding='utf-8') as csv_file:
 		for url, new_urls in edit_urls.items():
 			edit = tweet['full_text'].replace(url, ' '.join(map(str, new_urls)))
 			if edit == tweet['full_text']:
-				print(f"media edit failed on {tweet['id']}")
+				print(f"Media URL substitution failed on tweet ID {tweet['id']}.")
 			else:
 				tweet['full_text'] = edit
 		tweet['full_text'] = tweet['full_text'].replace('"', '""') # escape tweet text
