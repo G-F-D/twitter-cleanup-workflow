@@ -1,6 +1,9 @@
 # GFD’s Twitter archive cleanup workflow
 This is a workflow I made for cleaning up old tweets en masse, using the Twitter API to automate the deletion process.
 
+# Important disclaimer
+**Twitter has changed a bunch of stuff related to API access following its private acquisition. It’s very possible that nothing in this repo is applicable at all anymore as a consequence. [I no longer use Twitter and in fact explicitly discourage its use now](https://cohost.org/GFD/post/467645-i-fully-abandoned-tw), and as such will no longer maintain this repository directly unless my stance changes, but I will keep it up for historical purposes if nothing else.**
+
 # FAQ
 ## What is this repository, exactly?
 This describes a workflow and provides some scripts for automation. It is not a complete software package, more of a guide/tutorial for how to use these scripts in combination with other free open‐source software.
@@ -19,6 +22,7 @@ Yes, there is no special handling for them necessary. Every retweet is actually 
 * The tweet will appear once with its original text;
 * The tweet will appear once with its most recent text;
 * Each edit will appear as its own tweet.
+
 I also do not know how this will impact the automated deletion process, particularly in the lattermost case.
 
 ## How long will this take?
@@ -134,7 +138,7 @@ In your file explorer, open the data folder, hold shift and right‐click on som
 When you’re totally all done using the API, go back to the [Twitter developer portal dashboard](https://developer.twitter.com/en/portal/dashboard), click the blue key to the right of your app’s name, click “Regenerate” next to “API Key and Secret” and don’t save them anywhere, then click “Revoke” next to “Access Token and Secret”. This is for security purposes — now you cannot control your account with the API anymore until you generate new keys, but neither can anyone else.
 
 # Support / legal
-If you’re having difficulties, you can try contacting me on [Twitter](https://twitter.com/Gee_Eff_Dee) or [Mastodon](https://mastodon.social/@GFD), but I do not guarantee support and may be unable or unwilling to assist with individual cases.
+If you’re having difficulties, you can try contacting me on [Mastodon](https://mastodon.social/@GFD), but I do not guarantee support and may be unable or unwilling to assist with individual cases.
 
 If your issues are at all related to Twitter denying you access to API keys or otherwise taking action against your account, I cannot help you with that. I assume no legal liability for any outcomes of following any parts of this guide, and any advice comes with no warranty.
 
